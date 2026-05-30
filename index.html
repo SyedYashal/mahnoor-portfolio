@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mahnoor Shakil — Social Media Manager &amp; Visual Designer</title>
+<meta name="description" content="Portfolio of Mahnoor Shakil — social media manager and visual designer specialising in editorial design, brand identity and social campaigns.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;0,6..96,600;0,6..96,700;1,6..96,400;1,6..96,500&family=Hanken+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* ============================================================
+     EDIT YOUR PROJECTS IN THE <script> AT THE BOTTOM OF THIS FILE.
+     Just add a new object to the `projects` array — that's it.
+     ============================================================ */
+
+  :root{
+    --ivory:#f3ede1;
+    --paper:#f7f2e9;
+    --ink:#181410;
+    --ink-soft:#4a4138;
+    --taupe:#8c8174;
+    --rust:#b8482a;
+    --rust-deep:#8f3219;
+    --line:rgba(24,20,16,.14);
+    --maxw:1320px;
+    --serif:"Bodoni Moda",Georgia,serif;
+    --sans:"Hanken Grotesk",system-ui,sans-serif;
+  }
+
+  *{margin:0;padding:0;box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--ivory);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  /* film-grain overlay */
+  body::after{
+    content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 clamp(20px,5vw,64px)}
+
+  .eyebrow{
+    font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--rust);
+  }
+
+  /* ---------- top bar ---------- */
+  .topbar{
+    position:fixed;top:0;left:0;right:0;z-index:200;
+    background:rgba(243,237,225,.82);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+    transition:transform .4s ease;
+  }
+  .topbar .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{font-family:var(--serif);font-weight:600;font-size:1.15rem;letter-spacing:.01em}
+  .brand span{color:var(--rust)}
+  .navlinks{display:flex;gap:34px;align-items:center}
+  .navlinks a{font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;font-weight:500;position:relative}
+  .navlinks a::after{content:"";position:absolute;left:0;bottom:-5px;width:0;height:1.5px;background:var(--rust);transition:width .35s ease}
+  .navlinks a:hover::after{width:100%}
+  .nav-cta{
+    border:1.5px solid var(--ink);border-radius:40px;padding:9px 20px !important;
+    transition:background .3s,color .3s;
+  }
+  .nav-cta:hover{background:var(--ink);color:var(--ivory)}
+  .nav-cta::after{display:none}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer}
+  .burger span{width:26px;height:2px;background:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:128px 0 56px;position:relative}
+  .hero-masthead{display:flex;justify-content:space-between;align-items:flex-end;
+    border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:42px;
+    font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);flex-wrap:wrap;gap:10px}
+  .hero h1{
+    font-family:var(--serif);font-weight:600;line-height:.9;letter-spacing:-.01em;
+    font-size:clamp(3.4rem,13.5vw,12.5rem);
+  }
+  .hero h1 em{font-style:italic;color:var(--rust);font-weight:500}
+  .hero-row{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:30px;margin-top:30px}
+  .hero-role{font-family:var(--serif);font-style:italic;font-size:clamp(1.3rem,3vw,2.1rem);max-width:13ch;line-height:1.15}
+  .hero-intro{max-width:42ch;font-size:1.02rem;color:var(--ink-soft)}
+  .hero-intro .cta-line{margin-top:20px;display:inline-flex;align-items:center;gap:10px;
+    font-weight:600;text-transform:uppercase;letter-spacing:.1em;font-size:.8rem;color:var(--ink)}
+  .hero-intro .cta-line .arrow{transition:transform .3s}
+  .hero-intro a:hover .arrow{transform:translateX(6px)}
+
+  /* reveal animation */
+  .rise{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1s cubic-bezier(.2,.7,.2,1)}
+  .rise.in{opacity:1;transform:none}
+  .hero h1 .rise{display:inline-block;transition-delay:.05s}
+
+  /* ---------- marquee ---------- */
+  .marquee{border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+    margin-top:60px;padding:18px 0;overflow:hidden;white-space:nowrap}
+  .marquee-track{display:inline-flex;gap:0;animation:scroll 32s linear infinite}
+  .marquee-track span{font-family:var(--serif);font-size:1.5rem;padding:0 28px;color:var(--ink)}
+  .marquee-track span b{color:var(--rust);font-weight:400}
+  @keyframes scroll{to{transform:translateX(-50%)}}
+
+  /* ---------- section heading ---------- */
+  .sec{padding:96px 0}
+  .sec-head{display:flex;align-items:baseline;gap:18px;margin-bottom:14px}
+  .sec-head .num{font-family:var(--serif);font-style:italic;color:var(--rust);font-size:1.1rem}
+  .sec-title{font-family:var(--serif);font-size:clamp(2.1rem,5.5vw,4rem);line-height:1;font-weight:600}
+  .sec-title em{font-style:italic;color:var(--rust);font-weight:500}
+
+  /* ---------- about ---------- */
+  .about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(30px,6vw,90px);align-items:center;margin-top:36px}
+  .about-lead{font-family:var(--serif);font-size:clamp(1.5rem,3vw,2.3rem);line-height:1.3;font-weight:400}
+  .about-lead em{font-style:italic;color:var(--rust)}
+  .about-body p{color:var(--ink-soft);margin-bottom:18px;font-size:1.05rem}
+  .stats{display:flex;gap:40px;margin-top:30px;flex-wrap:wrap}
+  .stat .n{font-family:var(--serif);font-size:2.6rem;font-weight:600;line-height:1}
+  .stat .l{font-size:.74rem;letter-spacing:.16em;text-transform:uppercase;color:var(--taupe);margin-top:6px}
+
+  /* ---------- work gallery ---------- */
+  .gallery{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(18px,2.4vw,34px);margin-top:46px}
+  .card{position:relative;overflow:hidden;background:#e6ddcd;cursor:pointer;border-radius:2px}
+  .card.span6{grid-column:span 6}
+  .card.span5{grid-column:span 5}
+  .card.span7{grid-column:span 7}
+  .card.span4{grid-column:span 4}
+  .card .frame{overflow:hidden;position:relative}
+  .card img{width:100%;height:100%;object-fit:cover;transition:transform 1.1s cubic-bezier(.16,1,.3,1);aspect-ratio:4/3}
+  .card.tall img{aspect-ratio:3/4}
+  .card:hover img{transform:scale(1.06)}
+  .card .overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(24,20,16,0) 40%,rgba(24,20,16,.62));
+    opacity:0;transition:opacity .5s ease;display:flex;align-items:flex-end;padding:26px}
+  .card:hover .overlay{opacity:1}
+  .card .view{position:absolute;top:22px;right:22px;background:var(--ivory);color:var(--ink);
+    font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;font-weight:600;
+    padding:9px 16px;border-radius:30px;transform:translateY(-12px);opacity:0;transition:.45s ease}
+  .card:hover .view{transform:none;opacity:1}
+  .card .meta{padding:18px 4px 4px;display:flex;justify-content:space-between;align-items:baseline;gap:14px}
+  .card .meta .t{font-family:var(--serif);font-size:1.4rem;font-weight:600;line-height:1.05}
+  .card .meta .c{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--taupe);white-space:nowrap}
+  .card .yr{font-family:var(--serif);font-style:italic;color:var(--ivory);font-size:.95rem}
+  .card.span12{grid-column:span 12}
+
+  /* slideshow */
+  .slides{position:relative;overflow:hidden;aspect-ratio:16/9;background:#e6ddcd}
+  .card .slides .s-img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity 1s ease;aspect-ratio:unset}
+  .card .slides .s-img.act{opacity:1}
+  .dots{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);display:flex;gap:7px;z-index:10;pointer-events:none}
+  .dot{width:7px;height:7px;border-radius:4px;background:rgba(243,237,225,.4);transition:background .35s,width .35s}
+  .dot.act{background:var(--ivory);width:18px}
+
+  /* ---------- services ---------- */
+  .services{border-top:1px solid var(--line)}
+  .srow{display:grid;grid-template-columns:60px 1fr auto;gap:24px;align-items:center;
+    padding:30px 0;border-bottom:1px solid var(--line);transition:padding .4s ease}
+  .srow .si{font-family:var(--serif);font-style:italic;color:var(--rust);font-size:1.1rem}
+  .srow .st{font-family:var(--serif);font-size:clamp(1.6rem,3.4vw,2.6rem);font-weight:500;transition:transform .4s cubic-bezier(.16,1,.3,1)}
+  .srow .sd{color:var(--taupe);max-width:30ch;text-align:right;font-size:.95rem}
+  .srow:hover{padding-left:14px}
+  .srow:hover .st{transform:translateX(8px);color:var(--rust)}
+
+  /* ---------- contact ---------- */
+  .contact{background:var(--ink);color:var(--ivory);padding:clamp(70px,11vw,140px) 0;margin-top:40px}
+  .contact .eyebrow{color:#e8a48d}
+  .contact h2{font-family:var(--serif);font-size:clamp(2.6rem,8vw,6.5rem);line-height:.95;font-weight:500;margin:18px 0 30px}
+  .contact h2 em{font-style:italic;color:#e8a48d}
+  .contact .mail{font-family:var(--serif);font-size:clamp(1.4rem,4vw,2.6rem);border-bottom:1px solid rgba(243,237,225,.3);
+    padding-bottom:6px;display:inline-block;transition:border-color .3s}
+  .contact .mail:hover{border-color:#e8a48d}
+  .socials{margin-top:36px}
+  .socials a{font-family:var(--serif);font-size:clamp(1.4rem,4vw,2.6rem);font-weight:500;
+    color:var(--ivory);border-bottom:1px solid rgba(243,237,225,.3);padding-bottom:6px;
+    display:inline-block;transition:border-color .3s,color .3s}
+  .socials a:hover{border-color:#e8a48d;color:#e8a48d}
+
+  footer{padding:34px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;
+    flex-wrap:wrap;gap:12px;font-size:.78rem;letter-spacing:.06em;color:var(--taupe);text-transform:uppercase}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:860px){
+    .navlinks{position:fixed;inset:64px 0 auto 0;background:var(--paper);flex-direction:column;
+      gap:0;padding:0;max-height:0;overflow:hidden;transition:max-height .4s ease;border-bottom:1px solid var(--line)}
+    .navlinks.open{max-height:340px}
+    .navlinks a{padding:18px 24px;width:100%;border-bottom:1px solid var(--line)}
+    .nav-cta{margin:18px 24px;text-align:center}
+    .burger{display:flex}
+    .about-grid{grid-template-columns:1fr}
+    .card.span6,.card.span5,.card.span7,.card.span4{grid-column:span 12}
+    .srow{grid-template-columns:36px 1fr;gap:14px}
+    .srow .sd{display:none}
+  }
+</style>
+</head>
+<body>
+
+  <!-- ================= TOP BAR ================= -->
+  <header class="topbar" id="topbar">
+    <div class="wrap">
+      <a href="#top" class="brand">Mahnoor<span>.</span></a>
+      <nav class="navlinks" id="nav">
+        <a href="#about">About</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#contact" class="nav-cta">Let’s talk</a>
+      </nav>
+      <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero wrap" id="top">
+    <div class="hero-masthead">
+      <span>Portfolio — Vol. 01</span>
+      <span>Social &amp; Visual Design</span>
+      <span>Est. 2022 · Available for work</span>
+    </div>
+
+    <h1>
+      <span class="rise">Mahnoor</span><br>
+      <span class="rise" style="transition-delay:.18s"><em>Shakil</em></span>
+    </h1>
+
+    <div class="hero-row">
+      <p class="hero-role rise" style="transition-delay:.3s">Social media manager &amp; visual designer.</p>
+      <div class="hero-intro rise" style="transition-delay:.42s">
+        <p>I help brands look and sound unmistakable — from editorial layouts and identity systems to scroll-stopping social campaigns that actually move people.</p>
+        <a href="#work"><span class="cta-line">View selected work <span class="arrow">→</span></span></a>
+      </div>
+    </div>
+
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track" id="mqt"></div>
+    </div>
+  </section>
+
+  <!-- ================= ABOUT ================= -->
+  <section class="sec wrap" id="about">
+    <div class="sec-head">
+      <span class="num">01</span>
+      <h2 class="sec-title">About <em>the work</em></h2>
+    </div>
+    <div class="about-grid">
+      <p class="about-lead rise">A designer who treats every feed, page and campaign like a <em>cover story</em> — composed, intentional, and built to be remembered.</p>
+      <div class="about-body rise" style="transition-delay:.12s">
+        <p>From Pakistan Vogue editorial spreads to sportswear identities and awareness campaigns, my work lives where strategy meets craft. I design content that fits a brand’s voice, performs on the platforms it lives on, and looks at home next to the best in the category.</p>
+        <p>I work across content design, brand identity, illustration and full social management — taking ideas from blank canvas to a polished, publish-ready set.</p>
+        <div class="stats">
+          <div class="stat"><div class="n">8+</div><div class="l">Featured projects</div></div>
+          <div class="stat"><div class="n">3</div><div class="l">Years designing</div></div>
+          <div class="stat"><div class="n">∞</div><div class="l">Scrolls stopped</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WORK ================= -->
+  <section class="sec wrap" id="work">
+    <div class="sec-head">
+      <span class="num">02</span>
+      <h2 class="sec-title">Selected <em>work</em></h2>
+    </div>
+    <div class="gallery" id="gallery"></div>
+  </section>
+
+  <!-- ================= SERVICES ================= -->
+  <section class="sec wrap" id="services">
+    <div class="sec-head">
+      <span class="num">03</span>
+      <h2 class="sec-title">What I <em>do</em></h2>
+    </div>
+    <div class="services" id="services-list"></div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <span class="eyebrow">Let’s make something</span>
+      <h2>Have a brand that <em>deserves</em> better?</h2>
+      <div class="socials">
+        <a href="https://www.instagram.com/mahnoorandchaos/" target="_blank" rel="noopener">↗ @mahnoorandchaos</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>© <span id="yr"></span> Mahnoor Shakil</span>
+    <span>Designed to be remembered</span>
+  </footer>
+
+<script>
+/* ============================================================
+   ADD / EDIT PROJECTS HERE
+   --------------------------------------------------------------
+   Each project = one object. To add a new one, copy a block and
+   change the values. `size` controls how wide the card is on
+   desktop: "span7" / "span6" / "span5" / "span4" (they should add
+   up to 12 across each row). Add "tall" to `extra` for a portrait
+   crop. `img` can be a URL or a local file like "assets/name.jpg".
+   ============================================================ */
+const projects = [
+  { title:"Pakistan Vogue Magazine", cat:"Editorial Design", year:"2025",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/e99841221849589.67db667d88113.jpg",
+    link:"https://www.behance.net/gallery/221849589/Pakistan-Vogue-Magazine", size:"span7" },
+
+  { title:"Body Shaming Campaign", cat:"Social Campaign", year:"2023",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/8c3c9b180823051.6511982b074f1.jpg",
+    link:"https://www.behance.net/gallery/180823051/Body-shaming-campaign", size:"span5" },
+
+  { title:"Sportswear Brand", cat:"Brand Identity", year:"2025",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/26851d220253807.67bf948fe97b1.jpg",
+    link:"https://www.behance.net/gallery/220253807/Sportswear-brand", size:"span5" },
+
+  { title:"Wedding Cards", cat:"Print & Invitations", year:"2025",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/0b5c11220254025.67c0477579bb3.jpg",
+    link:"https://www.behance.net/gallery/220254025/Wedding-cards", size:"span7" },
+
+  { title:"Bake Sale", cat:"Event Branding", year:"2025",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/945d8a220253727.67bf94308d0ac.jpg",
+    link:"https://www.behance.net/gallery/220253727/Bake-sale", size:"span4" },
+
+  { title:"Illustrations", cat:"Illustration", year:"2023",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/4715a0151797275.651ebbd79bdbe.jpg",
+    link:"https://www.behance.net/gallery/151797275/Illustrations", size:"span4" },
+
+  { title:"Mock-ups", cat:"Product Mockups", year:"2023",
+    img:"https://mir-s3-cdn-cf.behance.net/projects/404/32a187180821509.651192fe874db.jpg",
+    link:"https://www.behance.net/gallery/180821509/Mock-ups", size:"span4" },
+
+  { title:"Social Media Manager", cat:"Rizshah Salon", year:"2025",
+    slides:["assets/rizshah/1.jpeg","assets/rizshah/2.jpeg","assets/rizshah/3.jpeg",
+            "assets/rizshah/4.jpeg","assets/rizshah/5.jpeg","assets/rizshah/6.jpeg",
+            "assets/rizshah/7.jpeg","assets/rizshah/8.jpeg"],
+    size:"span12" },
+];
+
+const services = [
+  { t:"Social Media Management", d:"Strategy, content calendars and day-to-day publishing." },
+  { t:"Content & Post Design", d:"Scroll-stopping feeds, stories and carousels." },
+  { t:"Brand Identity", d:"Logos, systems and visual language that hold up." },
+  { t:"Campaigns", d:"Concept-led awareness and product campaigns." },
+  { t:"Editorial & Print", d:"Magazine layouts, invitations and collateral." },
+  { t:"Illustration", d:"Custom artwork to make a brand its own." },
+];
+
+/* ---- render gallery ---- */
+const g = document.getElementById('gallery');
+projects.forEach(p=>{
+  const isSlide = p.slides && p.slides.length;
+  const tag = (!isSlide && p.link && p.link !== '#') ? 'a' : 'div';
+  const a = document.createElement(tag);
+  a.className=`card ${p.size||'span6'} ${(p.extra||'').includes('tall')?'tall':''} rise`;
+  if(tag==='a'){a.href=p.link; a.target='_blank'; a.rel='noopener';}
+  if(isSlide) a.dataset.slides='1';
+
+  let frameInner;
+  if(isSlide){
+    const imgs=p.slides.map((s,i)=>`<img class="s-img${i===0?' act':''}" src="${s}" alt="${p.title} ${i+1}" loading="lazy">`).join('');
+    const dotHtml=p.slides.map((_,i)=>`<span class="dot${i===0?' act':''}"></span>`).join('');
+    frameInner=`<div class="slides">${imgs}</div>
+      <div class="overlay"><span class="yr">${p.year||''}</span></div>
+      <div class="dots">${dotHtml}</div>`;
+  } else {
+    frameInner=`<img src="${p.img}" alt="${p.title}" loading="lazy"
+           onerror="this.style.minHeight='280px';this.style.background='#e0d6c4'">
+      <span class="view">View ↗</span>
+      <div class="overlay"><span class="yr">${p.year||''}</span></div>`;
+  }
+
+  a.innerHTML=`
+    <div class="frame">${frameInner}</div>
+    <div class="meta">
+      <span class="t">${p.title}</span>
+      <span class="c">${p.cat||''}</span>
+    </div>`;
+  g.appendChild(a);
+});
+
+/* ---- slideshow ---- */
+document.querySelectorAll('.card[data-slides]').forEach(card=>{
+  const imgs=card.querySelectorAll('.s-img'),dots=card.querySelectorAll('.dot');
+  let cur=0;
+  const go=n=>{imgs[cur].classList.remove('act');dots[cur].classList.remove('act');cur=n;imgs[cur].classList.add('act');dots[cur].classList.add('act');};
+  let t=setInterval(()=>go((cur+1)%imgs.length),3500);
+  card.addEventListener('mouseenter',()=>clearInterval(t));
+  card.addEventListener('mouseleave',()=>{t=setInterval(()=>go((cur+1)%imgs.length),3500);});
+});
+
+/* ---- render services ---- */
+const sl=document.getElementById('services-list');
+services.forEach((s,i)=>{
+  const r=document.createElement('div');
+  r.className='srow rise';
+  r.innerHTML=`<span class="si">${String(i+1).padStart(2,'0')}</span>
+    <span class="st">${s.t}</span><span class="sd">${s.d}</span>`;
+  sl.appendChild(r);
+});
+
+/* ---- marquee content ---- */
+const words=["Social Strategy","Content Design","Brand Identity","Campaigns","Editorial","Illustration"];
+const buildMq=()=>words.map(w=>`<span>${w} <b>✦</b></span>`).join('');
+document.getElementById('mqt').innerHTML=buildMq()+buildMq();
+
+/* ---- scroll reveal ---- */
+const io=new IntersectionObserver((es)=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+},{threshold:.12});
+document.querySelectorAll('.rise').forEach(el=>io.observe(el));
+
+/* ---- mobile nav ---- */
+const burger=document.getElementById('burger'), nav=document.getElementById('nav');
+burger.addEventListener('click',()=>nav.classList.toggle('open'));
+nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+/* ---- hide topbar on scroll down ---- */
+let last=0;const tb=document.getElementById('topbar');
+addEventListener('scroll',()=>{const y=scrollY;tb.style.transform=(y>last&&y>200)?'translateY(-100%)':'none';last=y;});
+
+document.getElementById('yr').textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
